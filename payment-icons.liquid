@@ -1,7 +1,3 @@
-{% comment %}
-  Zahlungsmethoden Icons - All-in-One Snippet (Fehlerbehebung)
-{% endcomment %}
-
 {% style %}
 .ss-payment-list {
   display: flex;
@@ -16,7 +12,7 @@
 }
 
 .ss-payment-icon svg {
-  width: 50px;
+  width: 35px;
   height: auto;
 }
 
@@ -35,10 +31,6 @@
       </div>
     </li>
   {% endfor %}
-  
-  {% comment %}
-    Fügen Sie hier zusätzliche statische Icons hinzu, die nicht von Shopify automatisch generiert werden
-  {% endcomment %}
   {% unless shop.enabled_payment_types contains 'klarna' %}
     <li class="ss-payment-item">
       <div class="ss-payment-icon">
@@ -48,8 +40,4 @@
       </div>
     </li>
   {% endunless %}
-  
-  {% comment %}
-    Fügen Sie hier weitere statische Icons hinzu...
-  {% endcomment %}
 </ul>
