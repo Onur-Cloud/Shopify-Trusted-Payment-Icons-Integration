@@ -1,0 +1,41 @@
+<style>
+  .ss-payment-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ss-payment-item {
+    margin: 5px;
+  }
+
+  .ss-payment-icon svg {
+    width: 35px;
+    height: auto;
+  }
+
+  .ss-payment-text {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+</style>
+
+<ul id="ss-payment-list-{{ section.id }}" class="ss-payment-list" aria-label="Akzeptierte Zahlungsmethoden">
+  
+  {% for type in shop.enabled_payment_types %}
+    <li class="ss-payment-item">
+      <div class="ss-payment-icon">
+        {{ type | payment_type_svg_tag: class: 'icon' }}
+      </div>
+    </li>
+  {% endfor %}
+  {% unless shop.enabled_payment_types contains 'klarna' %}
+    <li class="ss-payment-item">
+      <div class="ss-payment-icon">
+        <!-- Dein SVG-Code für Klarna -->
+      </div>
+    </li>
+  {% endunless %}
+</ul>
